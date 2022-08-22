@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using MyCoreApp.Pages.Common;
 using System.Data.SqlClient;
 
-namespace MyCoreApp.Pages.Clients
+namespace MyCoreApp.Pages.Employee
 {
     public class IndexModel : PageModel
     {
-        public List<ClientInfo> listClients = new List<ClientInfo>();
+        public List<EmployeeInfo> listEmployee = new List<EmployeeInfo>();
 
         public void OnGet()
         {
@@ -23,7 +24,7 @@ namespace MyCoreApp.Pages.Clients
                         {
                             while (reader.Read())
                             {
-                                ClientInfo clientInfo = new ClientInfo();
+                                EmployeeInfo clientInfo = new EmployeeInfo();
                                 clientInfo.id = "" + reader.GetInt32(0);
                                 clientInfo.name = reader.GetString(1);
                                 clientInfo.email = reader.GetString(2);
@@ -31,7 +32,7 @@ namespace MyCoreApp.Pages.Clients
                                 clientInfo.address = reader.GetString(4);
                                 clientInfo.created_at = reader.GetDateTime(5).ToString();
 
-                                listClients.Add(clientInfo);
+                                this.listEmployee.Add(clientInfo);
                             }
                         }
                     }
@@ -42,15 +43,5 @@ namespace MyCoreApp.Pages.Clients
                 Console.WriteLine("Exception: " + ex.ToString());
             }
         }
-    }
-
-    public class ClientInfo
-    {
-        public String id;
-        public String name;
-        public String email;
-        public String phone;
-        public String address;
-        public String created_at;
     }
 }

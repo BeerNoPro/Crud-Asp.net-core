@@ -15,8 +15,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Learn_Asp_Core\MyCoreApp
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Learn_Asp_Core/MyCoreApp/Pages/Clients/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50c1xJbmRleC5jc2h0bWw=
+[D:/Learn_Asp_Core/MyCoreApp/Pages/Employee/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Learn_Asp_Core/MyCoreApp/Pages/Employee/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Learn_Asp_Core/MyCoreApp/Pages/Employee/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Learn_Asp_Core/MyCoreApp/Pages/Employee/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Learn_Asp_Core/MyCoreApp/Pages/Error.cshtml]
