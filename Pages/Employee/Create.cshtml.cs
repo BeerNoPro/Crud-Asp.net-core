@@ -10,6 +10,13 @@ namespace MyCoreApp.Pages.Employee
         public EmployeeInfo employeeInfo = new EmployeeInfo();
         public String errorMessage = String.Empty;
         public String successMessage = String.Empty;
+
+        private readonly IConfiguration _configuration;
+        public CreateModel(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         public void OnGet()
         {
         }
@@ -50,8 +57,7 @@ namespace MyCoreApp.Pages.Employee
             // save new employee into the database
             try
             {
-                String connectionString = "Data Source=.\\MAYAO;Initial Catalog=MyStore;Integrated Security=True";
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
                 {
                     connection.Open();
                     String sql = "INSERT INTO clients (name, email, phone, address) VALUES (@name, @email, @phone, @address)";

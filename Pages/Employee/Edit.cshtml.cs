@@ -8,20 +8,22 @@ namespace MyCoreApp.Pages.Employee
     public class EditModel : PageModel
     {
         public EmployeeInfo employeeInfo = new EmployeeInfo();
-        public ConnecData connecData = new ConnecData();
         public String errorMessage = String.Empty;
         public String successMessage = String.Empty;
-        public String connectionString = "Data Source=.\\MAYAO;Initial Catalog=MyStore;Integrated Security=True";
-        //public String connectionString2 = connecData.linkConnec();
+
+        private readonly IConfiguration _iconfiguration;
+        public EditModel(IConfiguration configuration)
+        {
+            _iconfiguration = configuration;
+        }
 
         public void OnGet()
         {
             // Get id in url 
             String id = Request.Query["id"];
-
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_iconfiguration.GetConnectionString("DefaultConnection")))
                 {
                     connection.Open();
                     String sql = "SELECT * FROM clients WHERE id = @id";
@@ -85,7 +87,7 @@ namespace MyCoreApp.Pages.Employee
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                using (SqlConnection connection = new SqlConnection(_iconfiguration.GetConnectionString("DefaultConnection")))
                 {
                     connection.Open();
                     String sql = "UPDATE clients SET name = @name, email = @email, phone = @phone, address = @address WHERE id = @id";

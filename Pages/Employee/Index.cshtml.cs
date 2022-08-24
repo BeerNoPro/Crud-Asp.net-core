@@ -9,12 +9,17 @@ namespace MyCoreApp.Pages.Employee
     {
         public List<EmployeeInfo> listEmployee = new List<EmployeeInfo>();
 
+        private readonly IConfiguration _configuration;
+        public IndexModel(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         public void OnGet()
         {
             try
             {
-                String connectionString = "Data Source=.\\MAYAO;Initial Catalog=MyStore;Integrated Security=True";
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
                 {
                     connection.Open();
                     String sql = "SELECT * FROM clients";
